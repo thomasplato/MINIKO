@@ -1,0 +1,79 @@
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{siunitx}
+\sisetup{locale=DE,detect-all}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{enumitem}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section*{Opgave 3: Mælkeydelse og samlet klimabelastning for en bedrift}
+Et forskerhold har undersøgt forskellige mælkeproduktionsbedrifter i det sydlige Uruguay. I en forskningsartikel analyseres sammenhængen mellem mælkeydelse pr.\ ko (\(\mathrm{MYC}\)) og klimaaftryk pr.\ kg mælk (\(\mathrm{CF}\)) på 24 græsningsbaserede mælkeproduktionsbedrifter. Sammenhængen beskrives ved modellen
+\[
+\mathrm{CF} \;=\; 16{.}367 \cdot \mathrm{MYC}^{-0{,}326},
+\]
+hvor \(\mathrm{MYC}\) måles i kg mælk pr.\ år pr. ko, og \(\mathrm{CF}\) i kg CO$_2$ pr.\ kg mælk\footnote{Mere præcist måles MYC i kg fedt- og proteinkorrigeret mælk (FPCM) pr.\ år og CF (Carbon Footprint) i  CO$_2$-ækvivalenter pr. kg mælk.}. Artiklen fokuserer især på klimaaftrykket pr.\ kg mælk, men for klimaregnskabet er også \emph{den samlede} årlige udledning for hele besætningen relevant.\footnote{Data stammer fra: 
+\url{https://www.researchgate.net/publication/269989556_Practices_to_Reduce_Milk_Carbon_Footprint_on_Grazing_Dairy_Farms_in_Southern_Uruguay_Case_Studies} (Practices to Reduce Milk Carbon Footprint on Grazing Dairy Farms in Southern Uruguay: Case Studies)}
+
+Ved at gange \(\mathrm{CF}\) med den årlige mælkemængde  pr.\ ko (\(\mathrm{MYC}\)) og med antallet af køer, fås den samlede udledning for hele bedriften (i kg CO$_2$/år). Dette gør det muligt at undersøge, hvordan ændringer i mælkeydelsen påvirker totaludledningen.
+
+\section*{Graf}
+\begin{center}
+\includegraphics[width=0.95\linewidth]{graph_myc_total_cf.pdf}\\
+\small (Blå: CF pr.\ kg mælk (venstre akse). Rød: samlet årlig udledning for 150 køer (højre akse).)
+\end{center}
+
+\section*{Opgave}
+En gård har 150 malkekøer. Klimaaftrykket pr.\ kg mælk følger modellen
+\[
+\mathrm{CF} \;=\; 16{.}367 \cdot \mathrm{MYC}^{-0{,}326},
+\]
+hvor \(\mathrm{MYC}\) er mælkeydelse pr.\ ko i kg  pr. år).
+
+\begin{enumerate}[label=\alph*)]
+    \item Beregn \(\mathrm{CF}\) for \(\mathrm{MYC} = \num{8000}\) og \(\mathrm{MYC} = \num{10000}\) kg/år pr. ko.
+    \item Beregn den samlede årlige CO$_2$-udledning for hele bedriften i begge tilfælde (angiv i ton CO$_2$/år).
+    \item Hvor stor en procentvis forskel er der i det samlede klimaaftryk, når ydelsen øges fra 8000 til 10000 kg/år?
+    \item Diskutér, hvorfor den samlede udledning kan stige, selv om aftrykket pr.\ kg mælk falder.
+\end{enumerate}
+
+\section*{Løsninger}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{CF-værdier.}
+    \[
+    \begin{aligned}
+    \mathrm{CF}(\num{8000}) &= \num{16.367} \cdot \num{8000}^{\num{-0.326}}=\SI{0.874101}{\kilogram\ CO_2\per\kilogram\ \text{mælk}}
+       \approx \SI{0.87}{\kilogram\ CO_2\per\kilogram\ \text{mælk}},\\[6pt]
+    \mathrm{CF}(\num{10000}) &= \num{16.367} \cdot \num{10000}^{\num{-0.326}}=\SI{0.812773}{\kilogram\ CO_2\per\kilogram\ \text{mælk}}
+       \approx \SI{0.81}{\kilogram\ CO_2\per\kilogram\ \text{mælk}},\\[6pt]
+    \end{aligned}
+    \]
+    
+    \item \textbf{Samlet årlig udledning.} Formlen er
+    \[
+    \text{Total} = \mathrm{CF} \times \mathrm{MYC} \times N_{\text{køer}}.
+    \]
+    \(\mathrm{MYC}=8000:\quad 0.874101 \cdot 8000 \cdot 150 = \num{1048921} \text{ kg} \approx \num{1048,9} \text{ ton CO$_2$/år}.\)\\
+    \(\mathrm{MYC}=10000:\quad 0.812773 \cdot 10000 \cdot 150 = \num{1219160} \text{ kg} \approx \num{1219.2} \text{ ton CO$_2$/år}.\)
+    
+    \item \textbf{Procentvis forskel.}
+    \[
+    \frac{1219160 - 1048921}{1048921} \cdot 100\% \approx \num{16.2}\% \ \text{stigning}.
+    \]
+    
+    \item \textbf{Diskussion.} Selvom CF pr.\ kg mælk falder med en højere mælkeydelse, producerer gården flere kg mælk i alt. Stigningen i mælkeproduktion kan betyde mere end faldet i CF pr. kg, og så vil den samlede udledning stige.
+
+\end{enumerate}
+\end{document}

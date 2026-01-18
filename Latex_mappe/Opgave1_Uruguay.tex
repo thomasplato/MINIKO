@@ -1,0 +1,102 @@
+
+\documentclass[11pt,a4paper]{article}
+
+% --- Pakker ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{siunitx}
+\sisetup{locale=DE,detect-all}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{enumitem}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section*{Opgave 1: Mælkeydelse og klimaaftryk}
+Et forskerhold har undersøgt forskellige mælkeproduktionsbedrifter i det sydlige Uruguay. De har set på hvordan forskellige græsningsbaserede driftsformer påvirker klimaaftrykket. Resultaterne viser, at store forskelle i bl.a.\ mælkeydelse pr.\ ko, fodersammensætning og arealanvendelse fører til betydelige variationer i klimaaftrykket. Hvis man vil gøre noget for klimaet, er det derfor vigtigt nøje at overveje mælkeproduktionens driftform (måden man laver mælkeproduktion på). 
+
+I gennemsnit producerede gårdene \num{5672} kg mælk pr.\ ko pr.\ år, og spændet var fra ca.\ \num{3184} til \num{7772} kg. Samtidig lå klimaaftrykket fra \num{0.87} til \num{1.24} kg CO$_2$ pr.\ kg mælk med et gennemsnit på \num{0.99}.
+
+En statistisk analyse viste, at klimaaftrykket havde en tydelig negativ sammenhæng med mælkeydelsen pr.\ ko: Jo mere mælk en ko producerer, desto mindre bliver klimaaftrykket pr.\ kg mælk. Denne sammenhæng kan beskrives med modellen:
+\[
+\mathrm{CF} \;=\; 16{,}367 \cdot \mathrm{MYC}^{-0{,}326},
+\]
+hvor \(\mathrm{MYC}\) er mælkeydelse (i kg pr.\ år pr. ko) og \(\mathrm{CF}\) er klimaaftrykket (i kg CO$_2$ pr.\ kg mælk)\footnote{Mere præcist måles MYC i kg fedt- og proteinkorrigeret mælk (FPCM) pr.\ år og CF (Carbon Footprint) i  CO$_2$-ækvivalenter pr. kg mælk.}. Der er tale om en såkaldt potensfunktion. Modellen viser en aftagende marginal effekt: Den største forbedring sker, når mælkeydelsen stiger fra lave til moderate niveauer, mens gevinsten flader ud ved meget høje ydelser.\footnote{Data stammer fra: 
+\url{https://www.researchgate.net/publication/269989556_Practices_to_Reduce_Milk_Carbon_Footprint_on_Grazing_Dairy_Farms_in_Southern_Uruguay_Case_Studies} (Practices to Reduce Milk Carbon Footprint on Grazing Dairy Farms in Southern Uruguay: Case Studies)}.
+
+Udviklingen i dansk mælkeproduktion har været markant. I 1920 ydede en ko ca.\ 6 liter mælk om dagen, i 1950 ca.\ 10 liter/dag, og i 2021 ca.\ 29 liter/dag. Dette har haft betydning for klimaaftrykket pr.\ kg mælk, men udviklingen rejser også spørgsmål om dyrevelfærd, foderforbrug og miljøbelastning.
+
+\section*{Graf}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{graph_myc_cf.pdf}\\
+\small (Udviklingen i dansk mælkeproduktion indsat på grafen for modellen)
+\end{center}
+
+\section*{Opgaver}
+I denne opgave benytter vi modellen for Danmark, selvom produktionsforholdene er ganske anderledes end i det sydlige Uruguay. I Danmark har mælkeydelsen ændret sig markant:
+\begin{itemize}
+  \item 1920: ca.\ 6 liter/dag/ko
+  \item 1950: ca.\ 10 liter/dag/ko
+  \item 2021: ca.\ 29 liter/dag/ko
+\end{itemize}
+Antag at 1 liter mælk svarer til \num{1.03} kg mælk, og at tallene er helårs-gennemsnit.
+
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Omregning af mælkeydelse: fra liter/dag pr. ko til kg/år pr. ko:} Udregn \(\mathrm{MYC}\) (kg mælk pr.\ år pr. ko) for årene 1920, 1950 og 2021 i Danmark. Tip: omregn først fra liter/dag/ko til kg/dag/ko og dernæst omregn til årlige tal.
+    
+    \item \textbf{Klimaaftryk.} Brug modellen til at beregne \(\mathrm{CF}\) dvs. klimaaftrykket for de tre årstal.
+    
+    \item \textbf{Procentvis ændring.} Hvor stor er den procentvise reduktion i \(\mathrm{CF}\) fra 1920 til 2021? 
+    
+    \item \textbf{Diskussion.} Hvad fortæller resultaterne om betydningen af mælkeydelse for klimaaftrykket? Er det givet, at højere ydelse altid er en fordel for klimaet? (dette rækker uden for matematikken)
+\end{enumerate}
+
+\newpage
+\section*{Løsninger}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{MYC-beregning.} \(\mathrm{MYC} = (\text{liter/dag}) \cdot 365 \cdot 1{,}03\)
+    \[
+    \begin{aligned}
+    1920:&\; 6 \cdot 365 \cdot 1{,}03 \approx \num{2255,7} \text{ kg/år},\\
+    1950:&\; 10 \cdot 365 \cdot 1{,}03 \approx \num{3759,5} \text{ kg/år},\\
+    2021:&\; 29 \cdot 365 \cdot 1{,}03 \approx \num{10902,6} \text{ kg/år}.
+    \end{aligned}
+    \]
+    
+    \item \textbf{CF-beregning.} 
+    \[
+    \mathrm{CF} = \num{16.367} \cdot \mathrm{MYC}^{\num{-0.326}}
+    \]
+    
+    \[
+    \begin{aligned}
+    \textup{brug for eksempel for MYC} &= \SI{2255.7}{\kilogram}:\\[4pt]
+    \mathrm{CF}(\num{2255,7}) &= \num{16.367} \cdot \num{2255,7}^{\num{-0.326}}
+       \approx \SI{1.32}{\kilogram\ CO_2\per\kilogram\ \text{mælk}},\\[6pt]
+    1920\!:&\quad \mathrm{CF} \approx \num{1.32}\ \text{kg CO$_2$/kg mælk},\\
+    1950\!:&\quad \mathrm{CF} \approx \num{1.12}\ \text{kg CO$_2$/kg mælk},\\
+    2021\!:&\quad \mathrm{CF} \approx \num{0.79}\ \text{kg CO$_2$/kg mælk}.
+    \end{aligned}
+    \]
+    
+    \item \textbf{Procentvis fald fra 1920 til 2021.}\textbf{}
+    \[
+    \frac{1{,}32 - 0{,}79}{1{,}32} \cdot 100\% \approx \num{40}\%.
+    \]
+    
+    
+    \item \textbf{Diskussion.} Stigende mælkeydelse reducerer ifølge modellen klimaaftrykket pr.\ kg mælk, men gevinsten aftager ved høje ydelser. Samtidig kan højere ydelse medføre andre udfordringer (foder, sundhed, dyrevelfærd), så det er ikke givet, at maksimal ydelse altid er bedst samlet set.
+
+\end{enumerate}
+
+\end{document}
+

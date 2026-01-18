@@ -1,0 +1,105 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Pakker ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{siunitx}
+\sisetup{locale=DE,detect-all}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{enumitem}
+
+\date{}
+\author{}
+
+\begin{document}
+\section*{Opgave 4: Procentvis ændring for potensfunktioner}
+Et forskerhold har undersøgt forskellige mælkeproduktionsbedrifter i det sydlige Uruguay. De har set på hvordan forskellige græsningsbaserede driftsformer påvirker klimaaftrykket. Resultaterne viser, at store forskelle i bl.a.\ mælkeydelse pr.\ ko, fodersammensætning og arealanvendelse fører til betydelige variationer i klimaaftrykket. Hvis man vil gøre noget for klimaet, er det derfor vigtigt nøje at overveje mælkeproduktionens driftform (måden man laver mælkeproduktion på). 
+
+I gennemsnit producerede gårdene \num{5672} kg mælk pr.\ ko pr.\ år, og spændet var fra ca.\ \num{3184} til \num{7772} kg. Samtidig lå klimaaftrykket fra \num{0.87} til \num{1.24} kg CO$_2$ pr.\ kg mælk med et gennemsnit på \num{0.99}.
+
+En statistisk analyse viste, at klimaaftrykket havde en tydelig negativ sammenhæng med mælkeydelsen pr.\ ko: Jo mere mælk en ko producerer, desto mindre bliver klimaaftrykket pr.\ kg mælk. Denne sammenhæng kan beskrives med modellen:
+\[
+\mathrm{CF} \;=\; 16{,}367 \cdot \mathrm{MYC}^{-0{,}326},
+\]
+hvor \(\mathrm{MYC}\) er mælkeydelse (i kg pr.\ år pr. ko) og \(\mathrm{CF}\) er klimaaftrykket (i kg CO$_2$ pr.\ kg mælk)\footnote{Mere præcist måles MYC i kg fedt- og proteinkorrigeret mælk (FPCM) pr.\ år og CF (Carbon Footprint) i  CO$_2$-ækvivalenter pr. kg mælk.}. Der er tale om en såkaldt potensfunktion. Modellen viser en aftagende marginal effekt: Den største forbedring sker, når mælkeydelsen stiger fra lave til moderate niveauer, mens gevinsten flader ud ved meget høje ydelser.\footnote{Data stammer fra: 
+\url{https://www.researchgate.net/publication/269989556_Practices_to_Reduce_Milk_Carbon_Footprint_on_Grazing_Dairy_Farms_in_Southern_Uruguay_Case_Studies} (Practices to Reduce Milk Carbon Footprint on Grazing Dairy Farms in Southern Uruguay: Case Studies)}.
+
+\section*{Procentændringer for en potensfunktion}
+Den omtalte model er en potensfunktion
+\begin{equation*}
+f(x) \;=\; b \cdot x^{a},
+\end{equation*}
+hvor $a$ kaldes \emph{eksponenten} og $b>0$ er en proportionalitetskonstant. For sådanne modeller gælder den præcise procentsammenhæng
+\begin{equation*}
+1 + r_y \;=\; (1 + r_x)^{a},
+\end{equation*}
+når $x$ ændres med $r_x$ (f.eks.\ $r_x=0{,}10$ for $10\%$), og funktionsværdien $y=f(x)$ dermed ændres med $r_y$.
+\:
+
+\noindent
+\textbf{Hvordan læses formlen?} Hvis $x$ ganges med $(1+r_x)$, så ganges $f(x)$ med $(1+r_y)=(1+r_x)^a$. Er $a>0$, stiger $y$ når $x$ stiger; er $a<0$, falder $y$ når $x$ stiger. Når $|a|<1$, er effekten \emph{elastisk dæmpet}: en given procentvis ændring i $x$ giver en mindre procentvis ændring i $y$ (men modsat rettet, hvis $a<0$).
+
+\noindent
+\textbf{Anvendt på modellen her.} I denne opgave bruger vi modellen
+\begin{equation*}
+\mathrm{CF} \;=\; 16{.}367 \cdot \mathrm{MYC}^{-0{,}326},
+\end{equation*}
+hvor $\mathrm{MYC}$ er mælkeydelse pr.\ ko og $\mathrm{CF}$ er klimaaftryk (kg CO$_2$ pr.\ kg mælk). Her er $a=-0{,}326<0$, så højere MYC medfører lavere CF, og effekten er dæmpet i størrelsesorden $|a|=0{,}326$.
+
+\section*{Opgaver}
+Vi kigger på modellen $\mathrm{CF}=16{.}367\cdot \mathrm{MYC}^{-0{,}326}$. Brug procentsammenhængen
+\[
+1+r_{\mathrm{CF}}=(1+r_{\mathrm{MYC}})^{-0{,}326}
+\]
+til at besvare følgende. Svar med \% afrundet passende.
+
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Graf.} Tegn først grafen for potensfunktionen med MYC mellem fra 3000 til 8000
+    
+    \item \textbf{Stigninger.} Hvor meget (\%) ændres CF, når MYC stiger med hhv.\ $5\%$, $10\%$ og $20\%$?
+    
+    \item \textbf{Fald.} Hvor meget (\%) ændres CF, når MYC falder med $5\%$ og $10\%$?
+    \item \textbf{Sammensatte ændringer.} MYC stiger først med $10\%$ og dernæst med $15\%$. Hvad er den samlede procentvise ændring i CF?
+    \item \textbf{Målrettet reduktion af CF.} Hvor stor en procentvis stigning i MYC kræves for at \emph{reducere} CF med $15\%$?
+\end{enumerate}
+
+\newpage
+\section*{Løsninger}
+Vi anvender $r_{\mathrm{CF}}=(1+r_{\mathrm{MYC}})^{-0{,}326}-1$.
+
+\begin{enumerate}[label=\alph*)]
+    \item ...
+    \item 
+    Med $r_{\mathrm{MYC}}=0{,}05 \textup{ fås } r_{\mathrm{CF}}= (1+0{,}05)^{-0{,}326}-1 = -0{,}01578 \;=\; \SI{-1,58}{\percent}$.
+    
+    $\textup{Man får altså } r_{\mathrm{CF}}= -0{,}01578 \;=\; \SI{-1.58}{\percent}$.\\
+    Tilsvarende:\\
+    $r_{\mathrm{MYC}}=0{,}10 \textup{ Man får } r_{\mathrm{CF}}= -0{,}03059 \;=\; \SI{-3.06}{\percent}$.\\
+    $r_{\mathrm{MYC}}=0{,}20 \textup{ Man får } r_{\mathrm{CF}}= -0{,}05770 \;=\; \SI{-5.77}{\percent}$.
+    
+    \item $r_{\mathrm{MYC}}=-0{,}05 \Rightarrow r_{\mathrm{CF}}= +0{,}01686 \;=\; \SI{1.69}{\percent}$.\\
+    $r_{\mathrm{MYC}}=-0{,}10 \Rightarrow r_{\mathrm{CF}}= +0{,}03494 \;=\; \SI{3.49}{\percent}$.
+    
+    \item Samlet $r_{\mathrm{MYC}}=(1{,}10)\cdot(1{,}15)-1=0{,}265$.\\
+    $r_{\mathrm{CF}}= (1+0{,}265)^{-0{,}326}-1 = -0{,}07377 \;=\; \SI{-7.38}{\percent}$.
+    
+    \item Vi ønsker $r_{\mathrm{CF}}=-0{,}15$. Løs da
+    \(
+    1-0{,}15=(1+r_{\mathrm{MYC}})^{-0{,}326}
+    \Rightarrow
+    1+r_{\mathrm{MYC}}=(0{,}85)^{\,1/(-0{,}326)}
+    \Rightarrow
+    r_{\mathrm{MYC}}= 0{,}6463,
+    \)
+    altså en stigning på ca.\ \SI{64.63}{\percent}.
+
+\end{enumerate}
+
+\end{document}

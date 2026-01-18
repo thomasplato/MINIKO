@@ -1,0 +1,166 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Pakker ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{siunitx}
+\sisetup{locale=DE,detect-all}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{enumitem}
+
+\date{}
+\author{}
+
+\begin{document}
+
+\section*{Opgave 5: Elasticitet for potensfunktioner}
+Et forskerhold har undersøgt forskellige mælkeproduktionsbedrifter i det sydlige Uruguay. De har set på hvordan forskellige græsningsbaserede driftsformer påvirker klimaaftrykket. Resultaterne viser, at store forskelle i bl.a.\ mælkeydelse pr.\ ko, fodersammensætning og arealanvendelse fører til betydelige variationer i klimaaftrykket. Hvis man vil gøre noget for klimaet, er det derfor vigtigt nøje at overveje mælkeproduktionens driftform (måden man laver mælkeproduktion på). 
+
+I gennemsnit producerede gårdene \num{5672} kg mælk pr.\ ko pr.\ år, og spændet var fra ca.\ \num{3184} til \num{7772} kg. Samtidig lå klimaaftrykket fra \num{0.87} til \num{1.24} kg CO$_2$ pr.\ kg mælk med et gennemsnit på \num{0.99}.
+
+En statistisk analyse viste, at klimaaftrykket havde en tydelig negativ sammenhæng med mælkeydelsen pr.\ ko: Jo mere mælk en ko producerer, desto mindre bliver klimaaftrykket pr.\ kg mælk. Denne sammenhæng kan beskrives med modellen:
+\[
+\mathrm{CF} \;=\; 16{,}367 \cdot \mathrm{MYC}^{-0{,}326},
+\]
+hvor \(\mathrm{MYC}\) er mælkeydelse (i kg pr.\ år pr. ko) og \(\mathrm{CF}\) er klimaaftrykket (i kg CO$_2$ pr.\ kg mælk)\footnote{Mere præcist måles MYC i kg fedt- og proteinkorrigeret mælk (FPCM) pr.\ år og CF (Carbon Footprint) i  CO$_2$-ækvivalenter pr. kg mælk.}. Der er tale om en såkaldt potensfunktion. Modellen viser en aftagende marginal effekt: Den største forbedring sker, når mælkeydelsen stiger fra lave til moderate niveauer, mens gevinsten flader ud ved meget høje ydelser.\footnote{Data stammer fra: 
+\url{https://www.researchgate.net/publication/269989556_Practices_to_Reduce_Milk_Carbon_Footprint_on_Grazing_Dairy_Farms_in_Southern_Uruguay_Case_Studies} (Practices to Reduce Milk Carbon Footprint on Grazing Dairy Farms in Southern Uruguay: Case Studies)}.
+
+\section*{Elasticitet}
+Den omtalte model er en potensfunktion
+\begin{equation*}
+f(x) \;=\; b \cdot x^{a},
+\end{equation*}
+hvor $a$ kaldes \emph{eksponenten} og $b>0$ er en proportionalitetskonstant. For sådanne modeller gælder den præcise procentsammenhæng.
+\begin{equation*}
+1 + r_y \;=\; (1 + r_x)^{a},
+\end{equation*}
+når $x$ ændres med $r_x$ (f.eks.\ $r_x=0{,}10$ for $10\%$), og funktionsværdien $y=f(x)$ dermed ændres med $r_y$.
+
+\:
+
+\textbf{Hvordan læses formlen?} Hvis $x$ ganges med $(1+r_x)$, så ganges $f(x)$ med $(1+r_y)=(1+r_x)^a$. Er $a>0$, stiger $y$ når $x$ stiger; er $a<0$, falder $y$ når $x$ stiger. Når $|a|<1$, er effekten \emph{elastisk dæmpet}: en given procentvis ændring i $x$ giver en mindre procentvis ændring i $y$ (men modsat rettet, hvis $a<0$).
+
+\:
+
+\textbf{Elasticitet.} I en potensfunktion er $a$ lig med den (konstante) elasticitet: for små ændringer gælder den lineære tilnærmelse
+\begin{equation*}
+r_y \approx a \cdot r_x,
+\end{equation*}
+mens den eksakte sammenhæng altid er $1+r_y=(1+r_x)^a$. Tilnærmelsen er god for små procenter (fx $\pm 1$--$5\%$) og bliver gradvist mindre præcis for større ændringer.
+
+Elasticiteten beskriver, hvor mange procent $y$ ændres, når $x$ ændres med én procent. For en potensfunktion $f(x)=b\cdot x^a$ bestemmes elasticiteten ved:
+\[
+\frac{f'(x) \cdot x}{f(x)} = \frac{a \cdot b \cdot x^{a-1} \cdot x}{b \cdot x^a} = a.
+\]
+Det viser, at elasticiteten er konstant og netop lig eksponenten $a$. Det betyder, at en $1\%$ ændring i $x$ giver omtrent en $a\%$ ændring i $y$. Hvis $a=-0{,}326$ som i vores model, betyder det for eksempel, at en $1\%$ stigning i $x$ (mælkeydelsen) medfører et fald i $y$ (klimaaftrykket) på $0{,}326\%$. For små ændringer kan man derfor bruge den lineære tilnærmelse:
+\[
+r_y \approx a \cdot r_x,
+\]
+som er en førsteordens-approksimation af den eksakte sammenhæng $1+r_y=(1+r_x)^a$ (dvs. $r_y = a \cdot r_x$ er ligningen for tangenten til grafen for $r_y=(1+r_x)^a-1$ i punktet $(0,0)$.
+
+
+\:
+
+\textbf{Anvendt på modellen her.} I denne opgave er $a=-0{,}326<0$, så højere MYC medfører lavere CF, og effekten er dæmpet i størrelsesordenen $|a|=0{,}326$.
+
+\section*{Opgave}
+Vi betragter modellen $\mathrm{CF}=16{.}367\cdot \mathrm{MYC}^{-0{,}326}$. Brug procentsammenhængene:
+\[
+1+r_{\mathrm{CF}}=(1+r_{\mathrm{MYC}})^{-0{,}326} \text{    og    } r_{\mathrm{CF}} \approx a \cdot r_{\mathrm{MYC}}
+\]
+til at besvare følgende (svar med \% afrundet passende).
+
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Graf.} Tegn først grafen for potensfunktionen med MYC mellem fra 2000 til 10000
+    
+        \item \textbf{Fortolkning af sammenhæng.}  
+        En mælkeproducent øger mælkeydelsen pr.\ ko fra \SI{4000}{kg} til \SI{6000}{kg} pr.\ år.  
+        Brug modellen til at bestemme klimaaftrykket pr.\ kg mælk før og efter ændringen, og beregn den procentvise forskel.  
+        Kommentér kort, hvad dette siger om potentialet for at reducere CO$_2$-udledningen gennem øget mælkeydelse.
+    
+    \item \textbf{Elasticitet og tilnærmelse.} Brug $a=-0{,}326$ til at:
+        \begin{enumerate}[label=\arabic*)]
+        \item forklare kort, hvad tallet $-0{,}326$ betyder i ord,
+        \item estimere ændringen i CF ved en $10\%$ stigning i MYC med den lineære regel $r_y\approx a r_x$,
+        \item sammenligne dette med den \emph{eksakte} ændring via $1+r_{\mathrm{CF}}=(1+r_{\mathrm{MYC}})^{-0{,}326}$ og at kommentere forskellen.
+        \end{enumerate}
+    
+    \item \textbf{Formlen for elasticitet: $E=\frac{f'(x) \cdot x}{f(x)}$}
+        
+        Elasticiteten er 'forholdet mellem den procentvise ændring i $y$ og den procentvise ændring af $x$'. Den procentvise ændring i $y$ kan skrives som $\frac{\Delta y}{y}$. Den procentvise ændring i $x$ kan skrives som $\frac{\Delta x}{x}$. Forholdet mellem $\frac{\Delta y}{y}$ og $\frac{\Delta x}{x}$ er så: 
+        $
+        \frac{\frac{\Delta y}{y}}{\frac{\Delta x}{x}}
+        $
+        \begin{enumerate}[label=\arabic*)]
+        \item Vis at
+        \[
+        \lim_{\Delta x \to \infty}
+        \frac{\frac{\Delta y}{y}}{\frac{\Delta x}{x}}=\frac{f'(x) \cdot x}{f(x)}
+        \]
+        ved bl.a. at bruge brøkregneregler på $\frac{\frac{\Delta y}{y}}{\frac{\Delta x}{x}}$
+        \end{enumerate}
+    
+    \end{enumerate}
+
+\newpage
+\section*{Løsninger}
+
+\begin{enumerate}[label=\alph*)]
+    \item ...
+    
+    \item \textbf{Fortolkning af sammenhæng.}
+    Vi bruger modellen $\mathrm{CF}=16{.}367\cdot \mathrm{MYC}^{-0{,}326}$.
+    
+    \textit{Før (\textup{MYC} $=\SI{4000}{kg}$):}
+    
+    \[
+    \mathrm{CF}(4000)=16{.}367\cdot 4000^{-0{,}326}
+       \approx \SI{1.096}{kg\ CO_2/kg\ \text{mælk}}.
+    \]
+    
+    \textit{Efter (\textup{MYC} $=\SI{6000}{kg}$):}
+    \[
+    \mathrm{CF}(6000)=16{.}367\cdot 6000^{-0{,}326}\approx \SI{0.960}{kg\ CO_2/kg\ \text{mælk}}.
+    \]
+    
+    \textit{Procentvis ændring:}
+    \[
+    \frac{0.960-1.096}{1.096}\cdot 100\% \;\approx\; -\SI{12.38}{\percent}.
+    \]
+    Alternativt via procentsammenhængen:
+    \[
+    r_{\mathrm{MYC}}=\frac{6000}{4000}-1=0.5,
+    \qquad
+    r_{\mathrm{CF}}=(1+0.5)^{-0.326}-1\approx -0.1238 = -\SI{12.38}{\percent}.
+    \]
+    
+    \textit{Kommentar.} En stigning i ydelsen fra 4000 til 6000 kg pr.\ ko reducerer klimaaftrykket pr.\ kg mælk med ca.\ \SI{12.4}{\percent}. Det afspejler, at eksponenten $a=-0{,}326<0$ (negativ elasticitet): højere ydelse giver lavere CF pr.\ kg. Effekten har dog aftagende marginale gevinster, og den samlede udledning pr.\ gård afhænger også af produktionens størrelse, fodringsstrategi m.m.
+    
+    \item (1) Elasticiteten er konstant og lig $a=-0{,}326$: en lille ændring i MYC på $1\%$ giver omtrent en ændring i CF på $-0{,}326\%$.\\
+    (2) Lineær tilnærmelse ved $10\%$: $r_y\approx a \cdot r_x=-0{,}326\cdot 0{,}10=-0{,}0326$ dvs. \SI{-3.26}{\percent}.\\
+    (3) Med $r_{MYC}=0{,}10$ fås
+    $r_{\mathrm{CF}}\approx (1+0{,}10)^{-0{,}326}-1 \approx -0{,}03059 \;=\; \SI{-3.06}{\percent}$
+    Eksakt værdi ved $10\%$ er \SI{-3.06}{\percent}, så tilnærmelsen \emph{overvurderer} faldet med ca.\ $0{,}20$ procentpoint.
+    
+    \item For grænseværdien skal vi vise, at der gælder:
+    \[
+    \lim_{\Delta x \to 0} \frac{\frac{\Delta y}{y}}{\frac{\Delta x}{x}}
+    = \frac{f'(x)\ \cdot x}{f(x)}.
+    \]
+    Vi kan omskrive $\frac{\frac{\Delta y}{y}}{\frac{\Delta x}{x}}=\frac{\Delta y}{\Delta x}\cdot \frac{x}{y}$. Vi bemærker, at pr. definition har vi $\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}=f'(x)$. Det viser, at 
+    
+    \[
+    \lim_{\Delta x \to 0} \frac{\frac{\Delta y}{y}}{\frac{\Delta x}{x}}
+    =\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}\cdot \frac{x}{y}= \frac{f'(x) \cdot x}{f(x)}.
+    \]
+
+\end{enumerate}
+
+\end{document}

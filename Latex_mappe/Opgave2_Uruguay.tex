@@ -1,0 +1,95 @@
+
+\documentclass[11pt,a4paper]{article}
+
+% --- Pakker ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{siunitx}
+\sisetup{locale=DE,detect-all}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{enumitem}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section*{Opgave 2: Mælkeproduktion pr.\ hektar og klimaaftryk}
+Et forskerhold har undersøgt forskellige mælkeproduktionsbedrifter i det sydlige Uruguay. I en forskningsartikel analyseres 24 græsningsbaserede mælkeproduktionsbedrifter med fokus på klimaaftrykket, CF (Carbon Footprint). 
+
+Et centralt fund er en negativ sammenhæng mellem mælkeproduktion pr.\ hektar pr.\ år (\(\mathrm{MPA}\), målt i kg/ha/år) og klimaaftrykket (\(\mathrm{CF}\) målt som CO$_2$ pr. kg mælk)\footnote{Mere præcist måles MPA i kg fedt- og proteinkorrigeret mælk (FPCM) pr.\ ha pr.\ år og CF i  CO$_2$-ækvivalenter pr. kg mælk}. Helt overordnet: når flere kg mælk produceres pr.\ hektar pr. år, falder klimaaftrykket pr.\ kg mælk. Sammenhængen kan beskrives ved en potensmodel:
+\[
+\mathrm{CF} \;=\; 6{.}024 \cdot \mathrm{MPA}^{-0{,}219}.
+\]
+Modellen viser, at CF falder, men i aftagende takt, når MPA øges. Artiklen opdeler også bedrifterne i tre klynger med lav, mellem og høj produktion; de højtydende bedrifter har lavere CF, men ofte højere kvælstofbelastning pr.\ hektar. Dermed peger resultaterne både på effektivitetsgevinster og på mulige miljømæssige trade-offs.\footnote{Data stammer fra: 
+\url{https://www.researchgate.net/publication/269989556_Practices_to_Reduce_Milk_Carbon_Footprint_on_Grazing_Dairy_Farms_in_Southern_Uruguay_Case_Studies} (Practices to Reduce Milk Carbon Footprint on Grazing Dairy Farms in Southern Uruguay: Case Studies)}.
+
+\section*{Graf}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{graph_mpa_cf.pdf}\\
+\small (Markerede punkter: MPA = 2000, 4000, 6000, 8000 kg/ha/år. Stiplet: mål CF = 0.90 og tilsvarende MPA.)
+\end{center}
+
+\section*{Opgave}
+Vi betragter modellen
+\[
+\mathrm{CF} \;=\; 6{.}024 \cdot \mathrm{MPA}^{-0{,}219},
+\]
+hvor \(\mathrm{CF}\) er klimaaftrykket målt i kg CO$_2$ pr.\ kg mælk og \(\mathrm{MPA}\) er mælkeproduktion målt i kg mælk/ha/år.
+
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Beregninger.} Bestem CF for \(\mathrm{MPA} = \num{2000}, \num{4000}, \num{6000}\) og \(\num{8000}\) kg/ha/år.
+    \item \textbf{Fordoblingseffekt.} Hvor stor en procentvis ændring i CF opnås ved at fordoble MPA (1) fra 2000 til 4000 og (2) fra 4000 til 8000? Kommentér dine resultater.
+    \item \textbf{Elasticitet.} En potensmodel \(\mathrm{CF} = b \cdot \mathrm{MPA}^{a}\) har en \emph{elasticitet} \(a\), dvs.\ en 1\% stigning i MPA ændrer CF med ca.\ \(a\)\%. Bestem elasticiteten i vores model og fortolk tallet.
+    \item \textbf{Målsætning.} Hvilken MPA kræves (mindst) for at nå \(\mathrm{CF} \le \num{0.90}\)? Tjek at din løsning passer med figuren ovenover. 
+    \item \textbf{Diskussion.} Hvilke mulige trade-offs kan opstå, når man øger MPA for at reducere CF pr.\ kg mælk? Inddrag fx kvælstof pr.\ hektar, foderstrategi eller dyrevelfærd (denne diskussion rækker ud over matematikken).
+\end{enumerate}
+
+\newpage
+\section*{Løsninger}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{CF-beregninger.}
+    \[
+    \textup{For eksempel for MPA} = \SI{2000}{}:\\[4pt]
+    \mathrm{CF}(\num{2000}) = \num{6.024} \cdot \num{2000}^{\num{-0.219}}
+       = \SI{1.140}{\kilogram\ CO_2\per\kilogram\ \text{mælk}},\\[6pt]
+    \]
+    \[
+    \begin{aligned}
+    \mathrm{MPA}=2000:&\quad \mathrm{CF} = \num{1.140},\\
+    \mathrm{MPA}=4000:&\quad \mathrm{CF} = \num{0.980},\\
+    \mathrm{MPA}=6000:&\quad \mathrm{CF} = \num{0.896},\\
+    \mathrm{MPA}=8000:&\quad \mathrm{CF} = \num{0.842}.
+    \end{aligned}
+    \]
+    
+    \item \textbf{Fordoblingseffekt.} Fra forrige opgave ved vi, at CF$_{\mathrm{MPA}=2000}= \num{1,140}$ og CF$_{\mathrm{MPA}=4000}= \num{0.980}$. Det procentvise fald, når MPA øges fra 2000 til 4000, er da:
+    
+    \[
+    \frac{\mathrm{CF}_{\mathrm{MPA}=4000}}{\mathrm{CF}_{\mathrm{MPA}=2000}}-1=\frac{\num{0.980}}{\num{1.140}}-1=\num{-0.14}=\num{-14}\%
+    \]
+    
+    Tilsvarende får vi 14$\%$ fald med CF$_{\mathrm{MPA}=4000}= \num{0,980}$ og CF$_{\mathrm{MPA}=8000}= \num{0,842}$. Man kan vise, at ved en fordobling af MPA ændres CF med faktoren \(2^{-0{,}219}\), dvs.\ en procentvis ændring på
+    \[
+    \bigl(2^{-0{,}219}-1\bigr))\cdot 100\% \approx \num{-14}\%.
+    \]
+   En potensmodel giver den samme procentvise effekt pr.\ fordobling - lige meget om MPA går fra 2000 til 4000 eller fra 4000 til 8000.    
+   
+    \item \textbf{Elasticitet.} \(a=-0{,}219\). En 1\% stigning i MPA reducerer CF med ca.\ \(\num{0.219}\%\) (negativ sammenhæng).
+    
+   
+    \item \textbf{Målsætning.} Vi løser ligningen \(0{,}90 = 6{.}024 \cdot \mathrm{MPA}^{-0{,}219}\):
+    \[
+    \mathrm{MPA} = \left(\frac{0{,}90}{6{.}024}\right)^{1/-0{,}219} = \num{5889} \text{ kg/ha/år}.
+    \]
+    
+    \item \textbf{Diskussion.} Øget MPA kan kræve mere intensiveret drift og/eller højere fodereffektivitet. Artiklen indikerer, at højere MPA hænger sammen med lavere CF pr.\ kg mælk, men at kvælstofbelastning pr.\ hektar kan stige i de mest intensive systemer. Derfor skal reduktion i CF afvejes mod lokale miljøpåvirkninger og driftsmæssige hensyn.
+\end{enumerate}
+
+\end{document}

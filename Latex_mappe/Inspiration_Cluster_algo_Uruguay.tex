@@ -1,0 +1,84 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{enumitem}
+
+\title{Inspiration: Cluster Analysis og mælkeproduktion i Uruguay}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Baggrund}
+I en undersøgelse af 24 mælkeproducerende gårde i det sydlige Uruguay brugte forskerne en metode kaldet \textbf{cluster analysis} (på dansk: \textit{klyngeanalyse})\footnote{Data stammer fra: \url{https://www.researchgate.net/publication/269989556_Practices_to_Reduce_Milk_Carbon_Footprint_on_Grazing_Dairy_Farms_in_Southern_Uruguay_Case_Studies} (Practices to Reduce Milk Carbon Footprint on Grazing Dairy Farms in Southern Uruguay: Case Studies)}.
+
+Efter at have brugt PCA (se inspirationsteksten om PCA) til at finde de vigtigste mønstre i data, ønskede de at se, om gårdene kunne grupperes i nogle få typer med fælles kendetegn – f.eks. ”lavt udbytte, høj udledning” og ”højt udbytte, lav udledning”. 
+Klyngeanalysen viste netop tre sådanne grupper af gårde.
+
+\section*{Hvad er klyngeanalyse?}
+Klyngeanalyse er en metode til at finde naturlige grupperinger i et datasæt. 
+Hver observation (her: en gård) beskrives ved en række tal, fx mælkeydelse, fodermængde og CO\textsubscript{2}-udledning. 
+To gårde, som ligner hinanden, skal gerne havne i samme klynge.
+
+Metoden beregner en \textit{afstand} mellem punkterne i data. 
+Jo mindre afstanden er, desto mere ens er de to observationer. 
+Der findes mange måder at måle afstand på – en af de mest almindelige er \textbf{Euklidisk afstand}:
+\[
+d(A,B) = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2}
+\]
+for to punkter \(A\) og \(B\) med koordinater \((x_A, y_A)\) og \((x_B, y_B)\).
+
+\section*{Et geometrisk billede}
+Forestil dig, at hver gård tegnes som et punkt i et koordinatsystem, hvor akserne er f.eks. ”mælkeydelse pr. ko” og ”CO\textsubscript{2}-udledning pr. liter mælk”. 
+De gårde, der ligger tæt sammen, har nogenlunde samme produktionsform. 
+Hvis man tegner cirkler omkring punkterne, kan man se ”klynger” af gårde, som ligner hinanden.  
+
+Klyngeanalyse er en matematisk måde at finde disse grupper automatisk i mange dimensioner, ikke kun i to.
+
+\section*{Hvordan gjorde forskerne i Uruguay?}
+Forskerne brugte de samme variable som i PCA’en og anvendte en metode kaldet \textit{Ward’s hierarkiske klyngeanalyse}.  
+Denne metode starter med, at hver gård udgør sin egen klynge, og derefter slår man trin for trin de to mest ens klynger sammen. 
+Processen fortsætter, indtil der kun er få store klynger tilbage.
+
+Resultatet blev tre grupper:
+\begin{itemize}
+  \item \textbf{Klynge 1:} Gårde med lav mælkeydelse, lav foderudnyttelse og høj CO\textsubscript{2}-udledning (”traditionelle” gårde).
+  \item \textbf{Klynge 2:} Mellemgruppe med moderat produktion og middel udledning.
+  \item \textbf{Klynge 3:} Gårde med høj ydelse, effektiv foderudnyttelse og lavt klimaaftryk.
+\end{itemize}
+
+\noindent
+Forskellen mellem klyngerne viste, at bedre fodring og udnyttelse af græsmarker kunne reducere udledningen med op til 15\%, samtidig med at mælkeydelsen steg.
+
+\section*{Matematikken bag – på et overordnet plan}
+Selv om klyngeanalyse udføres af computere, bygger den på enkle geometriske idéer:
+\begin{itemize}
+  \item Hver gård kan beskrives som en \textbf{vektor} med mange komponenter (én for hver målt størrelse).
+  \item Afstanden mellem to vektorer måler, hvor ens de to gårde er.
+  \item En klynge er en samling vektorer, der ligger tæt på hinanden i dette rum.
+\end{itemize}
+Dermed opstår en forbindelse mellem landbrugsdata og geometrien fra 3.g’s vektorlære: afstande, retninger og punkters beliggenhed i rummet.
+
+\section*{Opgave / Refleksion}
+\begin{enumerate}[label=\alph*)]
+      \item Forklar med dine egne ord, hvad det vil sige, at to gårde har ”kort afstand” i datasættet.
+      \item Tegn et eksempel med seks punkter i et koordinatsystem, der kan opdeles i to eller tre klynger. 
+      \item Overvej: Hvordan kan klyngeanalyse bruges i andre sammenhænge – fx i økonomi, biologi eller markedsanalyse?
+      \item Hvilke fordele og ulemper ser du ved at lade et computerprogram ”finde” grupper i data i stedet for selv at udvælge dem?
+\end{enumerate}
+
+\section*{Perspektiv}
+Klyngeanalyse er et vigtigt værktøj i moderne dataanalyse og maskinlæring. 
+Metoden hjælper forskere, virksomheder og myndigheder med at finde mønstre i store datamængder – fx forbrugertyper, sygdomsudvikling eller miljøpåvirkninger.  
+
+ Klyngeanalysen viser, hvordan begreber som afstand, vektorer og koordinater kan bruges i praksis til at skabe indsigt i virkelige samfunds- og klimaproblemer.
+
+\end{document}
